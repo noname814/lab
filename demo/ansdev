@@ -1,3 +1,13 @@
+task createJar(type: Jar)
+{
+from sourceSets.main.output
+archiveFileName = "my-project.jar"
+}
+
+ngrok config add-authtoken <YOUR_AUTHTOKEN>
+ngrok http 8080
+URL (https://1234abcd.ngrok.io/github-webhook/)
+
 Ex No. 10 Ansible Installation and Create a sample Ansible playbook
 1. Install Ansible on your control node using the system package manager.
 $ sudo apt update
