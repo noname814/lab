@@ -71,3 +71,34 @@ msg: Hello!
 
 10. Executing playbook
 ansible-playbook -i inventory playbook.yml
+---------
+
+wsl --install
+sudo apt update && sudo apt upgrade -y
+sudo apt install software-properties-common -y
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible -y
+ansible --version
+sudo update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
+wsl --shutdown
+sudo apt install openssh-client openssh-server -y
+sudo service ssh start
+ssh-keygen -t rsa -b 4096 -C "devops default"
+ls -la ~/.ssh
+cat ~/.ssh/id_rsa.pub
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@localhost
+sudo apt install sshpass -y
+ssh user@localhost
+sudo apt install openssh-server -y
+sudo systemctl enable ssh
+sudo systemctl restart ssh
+nano inventory
+ansible all -i inventory -m ping --private-key ~/.ssh/id_rsa
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+nano playbook.yml
+ansible-playbook -i inventory playbook.yml --private-key ~/.ssh/id_rsa
+ip a
+sudo apt install tree git curl -y
+
+
